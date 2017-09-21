@@ -1,3 +1,5 @@
+package arduinocomteste;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,6 +12,7 @@
  */
 public class Interface_arduino extends javax.swing.JFrame {
 
+    Arduino conn = new Arduino();
     /**
      * Creates new form Interface_arduino
      */
@@ -26,17 +29,32 @@ public class Interface_arduino extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButtonSair = new javax.swing.JButton();
+        JBligar = new javax.swing.JButton();
+        JBdesligar = new javax.swing.JButton();
+        JBsair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Ligar");
+        JBligar.setText("Ligar");
+        JBligar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBligarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Desligar");
+        JBdesligar.setText("Desligar");
+        JBdesligar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBdesligarActionPerformed(evt);
+            }
+        });
 
-        jButtonSair.setText("Sair");
+        JBsair.setText("Sair");
+        JBsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBsairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -46,12 +64,12 @@ public class Interface_arduino extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jButton1)
+                        .addComponent(JBligar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2))
+                        .addComponent(JBdesligar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(jButtonSair)))
+                        .addComponent(JBsair)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -59,15 +77,28 @@ public class Interface_arduino extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(JBligar)
+                    .addComponent(JBdesligar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSair)
+                .addComponent(JBsair)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBligarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBligarActionPerformed
+        conn.comunicacaoArduino(JBligar);
+    }//GEN-LAST:event_JBligarActionPerformed
+
+    private void JBdesligarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBdesligarActionPerformed
+        conn.comunicacaoArduino(JBdesligar);
+    }//GEN-LAST:event_JBdesligarActionPerformed
+
+    private void JBsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBsairActionPerformed
+        conn.comunicacaoArduino(JBsair);
+        System.exit(0);
+    }//GEN-LAST:event_JBsairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,8 +136,8 @@ public class Interface_arduino extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButtonSair;
+    private javax.swing.JButton JBdesligar;
+    private javax.swing.JButton JBligar;
+    private javax.swing.JButton JBsair;
     // End of variables declaration//GEN-END:variables
 }
